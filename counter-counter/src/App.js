@@ -3,7 +3,7 @@ import { AppBar, Tabs, Tab } from '@material-ui/core';
 import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import About from './components/about';
 import CounterParent from './containers/CounterParent';
-
+import Other from './Other';
 
 function App() {
 const routes = ["/About","/Counters"];
@@ -11,15 +11,17 @@ const routes = ["/About","/Counters"];
   return (
       <div className="App">
       <BrowserRouter>
-      <Route path = "/">
+      <Route path = "/" >
       <AppBar position="static">
-        <Tabs>
+        <Tabs >
           <Tab 
+            disabled
             label="About" 
             value={routes[0]}
             component = {Link}
             to = {routes[0]} />
           <Tab
+            disabled
             label="Counters"
             value={routes[1]}
             component = {Link} 
@@ -29,8 +31,12 @@ const routes = ["/About","/Counters"];
       </Route>
 
       <Switch>
+      
       <Route path="/About" component ={About} />
+      
       <Route path="/Counters" component ={CounterParent} />
+      <Route component ={Other} />
+      
 
 
       </Switch>

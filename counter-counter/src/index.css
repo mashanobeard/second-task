@@ -5,9 +5,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(243, 215, 231);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app{
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  margin:0 auto;
+  width: 75%;
+ 
+}
+
+.curHeader{
+  font-size: 15px;
+  color:brown;
+}
+
+.header{
+  color: rgb(110, 2, 87);
+}
+
+.num{
+  font-size: 25px;
+}
+

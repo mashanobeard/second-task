@@ -7,9 +7,7 @@ class CounterContainer  extends React.Component{
     constructor(props){
         super(props)
 
-        this.state = {
-            count: 0
-        };
+        this.state = {count: 0 };
   
          this.handleIncrement = this.handleIncrement.bind(this) 
          this.handleDecrement = this.handleDecrement.bind(this) 
@@ -32,7 +30,13 @@ class CounterContainer  extends React.Component{
             count: 0 ,
         }))
     }
-   
+    componentDidMount(){
+        console.log('did mount')
+    }
+
+    componentWillUnmount(){
+        console.log('will unmount')
+    }
  
     render(){
 

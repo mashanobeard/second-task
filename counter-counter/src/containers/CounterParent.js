@@ -9,35 +9,82 @@ class CounterParent  extends React.Component{
         super(props)
   
     this.state = {
-        counter: 0
+        numOfCounters: 1
     };
     this.counterIncrement = this.counterIncrement.bind(this)
+    this.counterDecrement = this.counterDecrement.bind(this)
+    this.counterReset = this.counterReset.bind(this)
+    this.evenValue = this.evenValue.bind(this)
+
    } 
  
     counterIncrement () {
         this.setState((state) =>({
-            counter: this.state.counter + 1 ,
+            numOfCounters: this.state.numOfCounters + 1 ,
+            evenValue(){
+                
+            }
         }))
+    }
+
+    counterDecrement(){
+        if(this.state.numOfCounters > 1){
+            this.setState((state) =>({
+            numOfCounters: this.state.numOfCounters - 1 ,
+        }))
+    }
+}
+    counterReset(){
+        this.setState((state) =>({
+            numOfCounters: 1,
+        }))
+    }
+
+    evenValue(){
+        if (this.state.count %2 === 0 ){
+            this.setState((state) =>({
+                count: this.state.count + 1,
+            }))
+        }
+    }
+        
+    
+  
+   // oddValue{
+
+   // }
+
+    componentDidMount(){
+        console.log('did mount')
     }
 
     render(){
        const Counters = [];
-      for (var i = 0; i < this.state.counter; i += 1) {
+      for (var i = 0; i < this.state.numOfCounters; i += 1) {
        Counters.push(<CounterContainer key={i} />);
-     }
+     };
+
      const props ={
-          counter: this.state.counter,
-          counterIncrement: this.counterIncrement,
+        numOfCounters: this.state.numOfCounters,
+        counterIncrement: this.counterIncrement,
+        counterDecrement: this.counterDecrement,
+        counterReset: this.counterReset,
+        evenValue: this.evenValue
       
       }
         return(
-            <Counter2 {...props}/>
+            <div>
+            <Counter2 {...props}/>{Counters}
+            </div>
         );
     }
 }
     CounterParent.propTypes ={
         counterIncrement: PropTypes.func,
-        counter: PropTypes.number,
+        numOfCounters: PropTypes.number,
+        counterDecrement: PropTypes.func,
+        counterReset: PropTypes.func,
+        evenValue: PropTypes.func
     
     }
 

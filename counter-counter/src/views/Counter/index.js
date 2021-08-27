@@ -8,7 +8,7 @@ const Counter = (props) =>(
 
     <div >
 
-  <h1>{"Current count  " + props.count}</h1>
+  <h1 className="curHeader"> {"Current count  " + props.count}</h1>
  
       <Button variant="outlined" color="primary" onClick ={props.handleIncrement}>
         Increment

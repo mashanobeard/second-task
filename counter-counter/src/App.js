@@ -1,13 +1,15 @@
+import React from 'react';
 import './App.css';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import About from './components/about';
 import CounterParent from './containers/CounterParent';
 import Other from './Other';
-import React from 'react'
+import Login from "./components/login/LoginForm";
+
 
 function App() {
-const routes = ["/About","/Counters"];
+const routes = ["/About","/Counters", "/Login"];
 const [value, setValue] = React.useState(0)
 const handleTabs=(e,val)=>{
   setValue(val)
@@ -35,6 +37,13 @@ const handleTabs=(e,val)=>{
             value={routes[1]}
             component = {Link} 
             to = {routes[1]}/>
+          <Tab
+            
+            label="Login"
+            value={routes[2]}
+            component = {Link} 
+            to = {routes[2]}/>
+
         </Tabs>
       </AppBar>
        )} />
@@ -43,6 +52,7 @@ const handleTabs=(e,val)=>{
       
       <Route path="/About" component ={About} />
       <Route path="/Counters" component ={CounterParent} />
+      <Route path="/Login" component ={Login} />
       <Route path="*"component ={Other} />
       
 

@@ -37,3 +37,9 @@ code {
   font-size: 25px;
 }
 
+.error{
+  font-size: 35px;
+  margin-top: 250px;
+  font-weight: bold;
+}
+

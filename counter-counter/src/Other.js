@@ -1,16 +1,16 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
+
 import Container from '@material-ui/core/Container';
 
-export default function SimpleContainer() {
+ function Other() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm">
-        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} />
-        404 -Error
+      <Container className="error" >
+        404 - страница не найдена :(
       </Container>
     </React.Fragment>
   );
 }
+export default Other

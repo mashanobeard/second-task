@@ -3,42 +3,81 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 
 
+
 const Login = () => {
     const validationSchema = yup.object().shape({
-        email: yup.string().typeError('String').required("Is required")
+        email: yup.string().email('Email is invalid').required("Email is required"),
+        password: yup.string().typeError('Must be a string').required("Password is required").min(6,'min 6 symbols')
     })
+   
   return (
   <div>
+      <h1>Log in</h1>
       <Formik 
-      initialValues={{
+     initialValues={{
           email: '',
           password: ''
       }}
       validateOnBlur
-      onSubmit={(values) => {console.log(values) }}
+      onSubmit={(values, {resetForm})=>{
+          console.log(values)
+          resetForm()
+        }}
       validationSchema={validationSchema}
       >
-       {({ values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty }) => (
+    {({ 
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        isValid, 
+        handleSubmit, 
+        dirty 
+    }) => (
           <div>
               <p>
-                  <label htmlFor={`email`} >Email</label> <br/>
+                  <label htmlFor='email' className="names" >Email</label> <br/>
                   <input
-                   type={`text`}
-                   name={`email`}
+                  className="inputs"
+                   type='email'
+                   name='email'
                    onChange={handleChange}
                    onBlur={handleBlur}
-                   value={values.name} />
+                   value={values.email} />
               </p>
-              {touched.name && errors.name}
+              {touched.email && errors.email && <p className="errors-message">{errors.email}</p>}
+              <p>
+                  <label htmlFor='password' className="names">Password</label> <br/>
+                  <input
+                   className="inputs"
+                   type='password'
+                   name='password'
+                   onChange={handleChange}
+                   onBlur={handleBlur}
+                   value={values.password} />
+              </p>
+              {touched.password && errors.password && <p className="errors-message">{errors.password}</p>}
               <button
+                className ="btn"
                 disabled={!isValid && !dirty}
                 onClick={handleSubmit}
-                type={`submit`}
+                type='submit'
                 >Enter</button>
+                 <pre>
+                     <code>
+                    <strong>Your creds</strong> = {JSON.stringify(values.email, null, 2)}, 
+                    {JSON.stringify(values.password, null, 2)}
+                    </code>
+                </pre>
           </div>
+         
        )}  
+       
       </Formik>
-  </div>
+    
+        </div>
    );
+   
 }
 export default Login;

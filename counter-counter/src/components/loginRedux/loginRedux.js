@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
 
 const LoginRedux = () => {
   const [email,setEmail] = useState ("")
   const [password,setPassword] = useState ("")
 
+  const dispatch = useDispatch()
+
+  const formHandler = (event) => {
+    event.preventDefault();
+    console.log(event.target.elements)
+    let data = event.target.elements;
+    dispatch()
+  }
 
   return (
   <div>

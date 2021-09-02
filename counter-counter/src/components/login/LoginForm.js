@@ -2,8 +2,6 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
-
-
 const Login = () => {
     const validationSchema = yup.object().shape({
         email: yup.string().email('Email is invalid').required("Email is required"),

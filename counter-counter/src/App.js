@@ -6,10 +6,11 @@ import About from './components/about';
 import CounterParent from './containers/CounterParent';
 import Other from './Other';
 import Login from "./components/login/LoginForm";
+import LoginRedux from './components/loginRedux/loginRedux';
 
 
 function App() {
-const routes = ["/About","/Counters", "/Login"];
+const routes = ["/About","/Counters", "/Login","/Login-Redux"];
 const [value, setValue] = React.useState(0)
 const handleTabs=(e,val)=>{
   setValue(val)
@@ -43,6 +44,12 @@ const handleTabs=(e,val)=>{
             value={routes[2]}
             component = {Link} 
             to = {routes[2]}/>
+          <Tab
+            
+            label="Login-Redux"
+            value={routes[3]}
+            component = {Link} 
+            to = {routes[3]}/>
 
         </Tabs>
       </AppBar>
@@ -53,6 +60,7 @@ const handleTabs=(e,val)=>{
       <Route path="/About" component ={About} />
       <Route path="/Counters" component ={CounterParent} />
       <Route path="/Login" component ={Login} />
+      <Route path="/Login-Redux" component ={LoginRedux} />
       <Route path="*"component ={Other} />
       
 

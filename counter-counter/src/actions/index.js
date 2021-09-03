@@ -1,8 +1,15 @@
-import { Types } from '../actions/actionTypes';
+import { createAction } from "redux-actions";
 
-export const ActionCreators = {
+export const ActionTypes = {
+  UPDATE_EMAIL: 'UPDATE_EMAIL',
+  UPDATE_PASSWORD: 'UPDATE_PASSWORD',
+}
 
-  updateEmail: (email) => ({ type: Types.UPDATE_EMAIL, payload: { email } }),
+export const profileActions = {
+  updateEmail: (payload) => ({ type: ActionTypes.UPDATE_EMAIL, payload }),
+  updatePassword: (payload) => ({ type: ActionTypes.UPDATE_PASSWORD, payload }),
 
-  updatePassword: (password) => ({ type: Types.UPDATE_PASSWORD, payload: { password } }),
+
+
+
 }

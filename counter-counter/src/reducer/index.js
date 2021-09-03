@@ -1,19 +1,24 @@
-import { Types } from '../constants/actionTypes';
+import { ActionTypes } from '../actions/index'
+
+const initialState = {
+  email: '',
+  password: '',
+}
 
 
-const reducer = (state = initialState, action) => {
+export const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Types.UPDATE_EMAIL:
+    case ActionTypes.UPDATE_EMAIL:
     console.log('email', action.payload.email)
       return {
         ...state,
-        profile: action.payload.email,
+        email: action.payload,
         formSubmitted: false // after update user formsubmition reset
       }
-    case Types.UPDATE_PASSWORD:
+    case ActionTypes.UPDATE_PASSWORD:
       return {
         ...state,
-        profile: action.payload.password,
+        password: action.payload,
         formSubmitted: false // after update user formsubmition reset
       }
   
@@ -22,6 +27,5 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export default reducer;
-
+export default profileReducer;
 

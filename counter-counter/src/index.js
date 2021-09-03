@@ -5,11 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { Provider } from 'react-redux';
-import {createStore} from 'redux';
-import rootReducer from "./reducer";
-import initialState  from './store/initialState';
+import {combineReducers, createStore} from 'redux';
 
-const store = createStore(rootReducer, initialState);
+import profileReducer from './reducer';
+
+
+const  rootReducer = combineReducers({
+  profileReducer: profileReducer
+})
+const store = createStore(rootReducer);
 
 ReactDOM.render(
 

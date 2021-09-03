@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {profileActions}   from '../../actions/index';
+
 
 const LoginRedux = () => {
   const [email,setEmail] = useState ("")
@@ -11,7 +13,7 @@ const LoginRedux = () => {
     event.preventDefault();
     console.log(event.target.elements)
     let data = event.target.elements;
-    dispatch()
+    dispatch(profileActions(data.email)); 
   }
 
   return (

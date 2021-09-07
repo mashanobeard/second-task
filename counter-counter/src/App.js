@@ -2,11 +2,10 @@ import React from 'react';
 import './App.css';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import About from './components/about';
+import About from './components/About';
 import CounterParent from './containers/CounterParent';
-import Other from './Other';
-import Login from "./components/login/LoginForm";
-
+import Other from './components/ErrorPage';
+import Login from "./components/Login";
 
 function App() {
 const routes = ["/About","/Counters", "/Login"];
@@ -21,39 +20,32 @@ const handleTabs=(e,val)=>{
       <Route
        path = "/"
        render={(history) => (
-
-      
       <AppBar position="static">
         <Tabs value= {value} onChange={handleTabs}>
           <Tab 
-            
             label="About" 
             value={routes[0]}
             component = {Link}
             to = {routes[0]} />
           <Tab
-            
             label="Counters"
             value={routes[1]}
             component = {Link} 
             to = {routes[1]}/>
           <Tab
-            
             label="Login"
             value={routes[2]}
             component = {Link} 
             to = {routes[2]}/>
-
         </Tabs>
       </AppBar>
        )} />
-
       <Switch>
       
       <Route path="/About" component ={About} />
       <Route path="/Counters" component ={CounterParent} />
       <Route path="/Login" component ={Login} />
-      <Route path="*"component ={Other} />
+      <Route component ={Other} />
       
 
     

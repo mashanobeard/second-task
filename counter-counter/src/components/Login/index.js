@@ -2,14 +2,13 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
-
-
-const Login = () => {
-    const validationSchema = yup.object().shape({
+ const validationSchema = yup.object().shape({
         email: yup.string().email('Email is invalid').required("Email is required"),
         password: yup.string().typeError('Must be a string').required("Password is required").min(6,'min 6 symbols')
     })
-   
+
+const Login = () => {
+  
   return (
   <div>
       <h1>Log in</h1>

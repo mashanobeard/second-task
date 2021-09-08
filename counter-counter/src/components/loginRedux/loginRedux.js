@@ -1,43 +1,63 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import {profileActions}   from '../../actions/index';
+import React from "react";
+import * as yup from "yup";
+import { Formik, Form, Field } from "formik";
+import { Grid, Button } from "@material-ui/core";
+import PropTypes from 'prop-types';
 
 
-const LoginRedux = () => {
-  const [email,setEmail] = useState ("")
-  const [password,setPassword] = useState ("")
+const validationSchema = yup.object().shape({
+  email: yup.string().email('Email is invalid').required("Email is required"),
+  password: yup.string().typeError('Must be a string').required("Password is required").min(6,'min 6 symbols')
+})
 
-  const dispatch = useDispatch()
+const LoginRedux = ({emailInputChange, passwordInputChange, onSubmit }) => {
 
-  const formHandler = (event) => {
-    event.preventDefault();
-    console.log(event.target.elements)
-    let data = event.target.elements;
-    dispatch(profileActions(data.email)); 
-  }
 
-  return (
-  <div>
-    <form onSubmit={formHandler}>
-      <h1>Login here</h1>
-      <input
-        type="email" 
-        placeholder="Email" 
-        value={email}
-        onChange = {(e) => setEmail(e.target.value)}/>
-      <input 
-        type="password" 
-        placeholder="Password" 
-        value={password}
-        onChange = {(e) => setPassword(e.target.value)}
-         />
-      <button type="submit">
-    Log in
-      </button>
-    </form>
-    
-        </div>
-   );
-   
+return(
+   <Formik validationSchema={validationSchema} onSubmit={onSubmit}>
+    <Form autoComplete="off">
+      <Grid container direction="column" spacing={1}>
+        <Grid item>
+          Email:  
+          <Field
+            color="secondary"
+            name="email"
+            label="Email"
+            type="email"
+            onChange= {emailInputChange}
+            required
+          />
+        </Grid>
+        <Grid item>
+          Password:
+          <Field
+            color="secondary"
+            name="password"
+            label="Password"
+            type="password"
+            onChange = {passwordInputChange}
+            required
+          />
+        </Grid>
+        <Grid item>123
+        </Grid>
+        <Grid item>
+          <Button 
+            fullWidth variant="contained" 
+            color="primary" 
+            type="submit">
+            Sign In
+          </Button>
+        </Grid>
+      </Grid>
+    </Form>
+  </Formik>
+)
 }
+LoginRedux.propTypes ={
+  emailInputChange: PropTypes.func,
+  passwordInputChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+}
+
 export default LoginRedux;

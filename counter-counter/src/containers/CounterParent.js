@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CounterContainer from './CounterContainer';
-import Counter2 from '../views/Counter/index2';
+import Counter2 from '../views/Counter/bigCounter';
 
 
 class CounterParent  extends React.Component{

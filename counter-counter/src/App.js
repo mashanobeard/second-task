@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import About from './components/about';
+import About from './components/About';
 import CounterParent from './containers/CounterParent';
-import Other from './Other';
-import Login from "./components/login/LoginForm";
-import LoginRedux from './components/loginRedux/loginRedux';
+import Other from './components/ErrorPage';
+import Login from "./components/Login";
+import LoginRedux from './components/LoginRedux/loginRedux';
 
 
 function App() {

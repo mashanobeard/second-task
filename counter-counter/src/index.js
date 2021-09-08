@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
 import { Provider } from 'react-redux';
 import {combineReducers, createStore} from 'redux';
-
-import profileReducer from './reducer';
+import FormReducer from './reducer';
 
 
 const  rootReducer = combineReducers({
-  profileReducer: profileReducer
+  FormReducer: FormReducer
 })
 const store = createStore(rootReducer);
 

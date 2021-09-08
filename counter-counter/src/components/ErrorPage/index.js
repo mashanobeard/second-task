@@ -1,6 +1,5 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
 import Container from '@material-ui/core/Container';
 
  function Other() {
@@ -13,4 +12,5 @@ import Container from '@material-ui/core/Container';
     </React.Fragment>
   );
 }
-export default Other
+
+export default Other;

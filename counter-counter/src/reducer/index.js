@@ -1,31 +1,25 @@
-import { ActionTypes } from '../actions/index'
+
+import { handleActions } from 'redux-actions';
+import { updateEmail, updatePassword } from '../actions';
 
 const initialState = {
   email: '',
   password: '',
 }
 
+ const FormReducer = handleActions(
+{
+  [updateEmail] : ( state,action) =>({
+    ...state,
+     email: action.payload
+   }),
+   [updatePassword] : ( state, action) => ({
+     ...state,
+      password: action.payload,
+})
+},
+ initialState
+ )
 
-export const profileReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ActionTypes.UPDATE_EMAIL:
-    console.log('email', action.payload.email)
-      return {
-        ...state,
-        email: action.payload,
-        formSubmitted: false // after update user formsubmition reset
-      }
-    case ActionTypes.UPDATE_PASSWORD:
-      return {
-        ...state,
-        password: action.payload,
-        formSubmitted: false // after update user formsubmition reset
-      }
-  
-    default:
-      return state;
-  }
-}
-
-export default profileReducer;
+export default FormReducer;
 

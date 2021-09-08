@@ -6,9 +6,10 @@ import { updateEmail, updatePassword } from '../actions';
 import FormReducer from "../reducer";
 
 
+
 const LoginReduxContainer = (props) => {
   const { updateEmail, updatePassword } = props;
-console.log(props)
+
 
   const handleEmailChange = (event) => {
     updateEmail(event.target.value);
@@ -18,18 +19,18 @@ console.log(props)
     updatePassword(event.target.value);
   };
 
-//   const onHandleSubmit = (event) => {
-//     event.preventDefault();
-//     props.history.replace("/login-redux/success");
-//   };
+   const onHandleSubmit = (event) => {
+     event.preventDefault();
+     props.history.replace("/Login-Redux/Success");
+   };
 
   return (
     <LoginRedux
-      emailInputChange={handleEmailChange}
-      passwordInputChange={handlePasswordChange}
-//       emailOutput={props.email}
-//       passwordOutput={props.password}
+      emailChange={handleEmailChange}
+      passwordChange={handlePasswordChange}
       onSubmit={onHandleSubmit}
+      emailSuccess = {props.email}
+      passwordSuccess = {props.password}
     />
   );
 };

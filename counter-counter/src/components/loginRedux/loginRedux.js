@@ -10,12 +10,15 @@ const validationSchema = yup.object().shape({
   password: yup.string().typeError('Must be a string').required("Password is required").min(6,'min 6 symbols')
 })
 
-const LoginRedux = ({emailInputChange, passwordInputChange, onSubmit }) => {
+const LoginRedux = ({emailChange, passwordChange, onSubmit, emailSuccess, passwordSuccess }) => {
 
 
 return(
-   <Formik validationSchema={validationSchema} onSubmit={onSubmit}>
-    <Form autoComplete="off">
+  <div>
+   <Formik validationSchema={validationSchema} >
+    <Form 
+      
+      onSubmit={onSubmit}>
       <Grid container direction="column" spacing={1}>
         <Grid item>
           Email:  
@@ -24,8 +27,7 @@ return(
             name="email"
             label="Email"
             type="email"
-            onChange= {emailInputChange}
-            required
+            onChange = {emailChange}
           />
         </Grid>
         <Grid item>
@@ -35,29 +37,38 @@ return(
             name="password"
             label="Password"
             type="password"
-            onChange = {passwordInputChange}
-            required
+            onChange = {passwordChange}
           />
         </Grid>
-        <Grid item>123
+        <Grid item>
         </Grid>
         <Grid item>
           <Button 
-            fullWidth variant="contained" 
+            variant="contained" 
             color="primary" 
             type="submit">
-            Sign In
+            Enter
           </Button>
         </Grid>
       </Grid>
     </Form>
   </Formik>
+  <div>
+  <pre>
+    <code>
+      <strong>Your creds</strong> = {JSON.stringify(emailSuccess)}, {JSON.stringify(passwordSuccess)}
+    </code>
+  </pre>
+  </div>
+  </div>
 )
 }
 LoginRedux.propTypes ={
-  emailInputChange: PropTypes.func,
-  passwordInputChange: PropTypes.func,
+  emailChange: PropTypes.func,
+  passwordChange: PropTypes.func,
   onSubmit: PropTypes.func,
+  emailSuccess: PropTypes.string,
+  passwordSuccess: PropTypes.string
 }
 
 export default LoginRedux;

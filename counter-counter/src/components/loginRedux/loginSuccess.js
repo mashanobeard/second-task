@@ -1,13 +1,14 @@
 import React from 'react';
 
 
-const loginSuccess = () => {
- 
+const LoginSuccess = () => {
+  console.log('rreer')
   return (
   <div>
-      <h1>Welcome <span>{JSON.stringify(email, null, 2)}</span></h1>
+      <h1>Welcome </h1>
+     
   </div>
    );
    
 }
-export default loginSuccess;
+export default LoginSuccess;

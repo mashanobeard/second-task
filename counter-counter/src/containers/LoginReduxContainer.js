@@ -2,33 +2,31 @@ import React from "react";
 import { connect } from "react-redux";
 import LoginRedux from "../components/LoginRedux/loginRedux";
 import { withRouter } from "react-router-dom";
-import { updateEmail, updatePassword } from '../actions';
-import FormReducer from "../reducer";
-
+import { updateEmail, updatePassword } from '../actions/index';
 
 
 const LoginReduxContainer = (props) => {
   const { updateEmail, updatePassword } = props;
+   console.log(props)
 
-
-  const handleEmailChange = (event) => {
+  const handleEmailUpdate = (event) => {
     updateEmail(event.target.value);
   };
 
-  const handlePasswordChange = (event) => {
+  const handlePasswordUpdate = (event) => {
     updatePassword(event.target.value);
   };
 
-   const onHandleSubmit = (event) => {
+   const handleSubmit = (event) => {
      event.preventDefault();
-     props.history.replace("/Login-Redux/Success");
+     props.history.push("/Login-Redux/Success");
    };
 
   return (
     <LoginRedux
-      emailChange={handleEmailChange}
-      passwordChange={handlePasswordChange}
-      onSubmit={onHandleSubmit}
+      emailUpdate={handleEmailUpdate}
+      passwordUpdate={handlePasswordUpdate}
+      onSubmit={handleSubmit}
       emailSuccess = {props.email}
       passwordSuccess = {props.password}
     />

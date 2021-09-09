@@ -10,9 +10,10 @@ import FormReducer from './reducer';
 
 const  rootReducer = combineReducers({
   FormReducer: FormReducer
+ 
 })
 const store = createStore(rootReducer);
-
+ 
 ReactDOM.render(
 
   <React.StrictMode>

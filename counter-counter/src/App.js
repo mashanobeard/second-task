@@ -6,12 +6,12 @@ import About from './components/About';
 import CounterParent from './containers/CounterParent';
 import Other from './components/ErrorPage';
 import Login from "./components/Login";
-import LoginRedux from './components/LoginRedux/loginRedux';
 import LoginSuccess from './components/LoginRedux/loginSuccess';
+import LoginReduxContainer from './containers/LoginReduxContainer';
 
 
 function App() {
-const routes = ["/About","/Counters", "/Login","/Login-Redux",'/Login-Redux/Success'];
+const routes = ["/About","/Counters", "/Login","/Login-Redux",'/404', '/Login-Redux/Success'];
 const [value, setValue] = React.useState(0)
 const handleTabs=(e,val)=>{
   setValue(val)
@@ -61,9 +61,9 @@ const handleTabs=(e,val)=>{
       <Route path="/About" component ={About} />
       <Route path="/Counters" component ={CounterParent} />
       <Route path="/Login" component ={Login} />
-      <Route exact path="/Login-Redux" component ={LoginRedux} />
+      <Route exact path="/Login-Redux" component ={LoginReduxContainer} />
       <Route path="/Login-Redux/Success" component ={LoginSuccess} />
-      <Route path="*"component ={Other} />
+      <Route path="/404"component ={Other} />
       
       </Switch>
       

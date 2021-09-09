@@ -1,14 +1,20 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 
-const LoginSuccess = () => {
-  console.log('rreer')
+const LoginSuccess = ({email, password}) => {
+
   return (
+    
   <div>
-      <h1>Welcome </h1>
-     
+      <h1>Welcome, {email} </h1>
+      <p>Your password: {password}</p>
   </div>
-   );
-   
+   ); 
 }
-export default LoginSuccess;
+const mapStateToProps = (state) => ({
+    email: state.FormReducer.email,
+    password: state.FormReducer.password,
+  });
+
+export default connect(mapStateToProps, null) (LoginSuccess);

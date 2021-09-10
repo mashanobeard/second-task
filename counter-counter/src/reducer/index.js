@@ -1,4 +1,3 @@
-
 import { handleActions } from 'redux-actions';
 import { updateEmail, updatePassword } from '../actions';
 

@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 let LoginReduxForm = ({onSubmit, emailUpdate, passwordUpdate, emailSuccessForm, passwordSuccessForm}) => {
 
-return(
     <div>
   <form onSubmit={onSubmit}>
     <div>
@@ -45,10 +44,13 @@ return(
     </div>
 
 </div>
-    )
 }
 LoginReduxForm.propTypes ={
     onSubmit: PropTypes.func,
+    emailUpdate: PropTypes.func,
+    passwordUpdate: PropTypes.func,
+    emailSuccess: PropTypes.string,
+    passwordSuccess: PropTypes.string,
 } 
 
  LoginReduxForm = reduxForm({

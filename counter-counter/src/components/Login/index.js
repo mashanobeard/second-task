@@ -8,8 +8,6 @@ const validationSchema = yup.object().shape({
     })
 
 const Login = () => {
- 
-  return (
   <div>
       <h1>Log in</h1>
       <Formik 
@@ -72,11 +70,7 @@ const Login = () => {
           </div>
          
        )}  
-       
       </Formik>
-    
         </div>
-   );
-   
 }
 export default Login;

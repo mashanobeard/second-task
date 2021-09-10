@@ -4,7 +4,6 @@ import { updateEmail, updatePassword } from '../actions/index';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-
 const LoginReduxFormContainer = (props) => {
     const { updateEmail, updatePassword } = props;
 

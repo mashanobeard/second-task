@@ -5,12 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import {combineReducers, createStore} from 'redux';
-import FormReducer from './reducer';
-
+import LoginReducer from './reducer';
+import { reducer as formReducer } from 'redux-form' 
 
 const  rootReducer = combineReducers({
-  FormReducer: FormReducer
- 
+  LoginReducer: LoginReducer,
+  form: formReducer,
 })
 const store = createStore(rootReducer);
  

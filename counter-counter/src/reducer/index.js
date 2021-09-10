@@ -7,7 +7,7 @@ const initialState = {
   password: '',
 }
 
- const FormReducer = handleActions(
+ const LoginReducer = handleActions(
 {
   [updateEmail] : ( state,action) =>({
     ...state,
@@ -21,5 +21,5 @@ const initialState = {
  initialState
  )
 
-export default FormReducer;
+export default LoginReducer;
 

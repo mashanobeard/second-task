@@ -34,8 +34,8 @@ const LoginReduxContainer = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  email: state.FormReducer.email,
-  password: state.FormReducer.password,
+  email: state.LoginReducer.email,
+  password: state.LoginReducer.password,
 });
 
 const mapDispatchToProps = (dispatch) => {

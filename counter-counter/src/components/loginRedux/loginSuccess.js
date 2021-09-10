@@ -13,8 +13,8 @@ const LoginSuccess = ({email, password}) => {
    ); 
 }
 const mapStateToProps = (state) => ({
-    email: state.FormReducer.email,
-    password: state.FormReducer.password,
+    email: state.LoginReducer.email,
+    password: state.LoginReducer.password,
   });
 
 export default connect(mapStateToProps, null) (LoginSuccess);

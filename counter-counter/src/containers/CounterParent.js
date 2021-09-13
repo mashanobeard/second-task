@@ -1,92 +1,40 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CounterContainer from './CounterContainer';
+import React, {useState} from 'react';
 import Counter2 from '../views/Counter/bigCounter';
+import CounterContainer from './CounterContainer';
 
 
-class CounterParent  extends React.Component{
-    constructor(props){
-        super(props)
-  
-    this.state = {
-        numOfCounters: 1
-    };
-    this.counterIncrement = this.counterIncrement.bind(this)
-    this.counterDecrement = this.counterDecrement.bind(this)
-    this.counterReset = this.counterReset.bind(this)
-    this.evenValue = this.evenValue.bind(this)
-
-   } 
- 
-    counterIncrement () {
-        this.setState((state) =>({
-            numOfCounters: this.state.numOfCounters + 1 ,
-            evenValue(){
-                
-            }
-        }))
+const CounterParent = (props) => {
+   const [counter, setCount] = useState (1)
+   
+    const counterIncrement = () => {
+            return setCount(counter => counter +1)  
+    } 
+    const counterDecrement = () => {
+        if(counter > 1) {
+        setCount(counter => counter - 1);
+        }  
+    }
+    const counterReset = () => {
+         setCount (1)
     }
 
-    counterDecrement(){
-        if(this.state.numOfCounters > 1){
-            this.setState((state) =>({
-            numOfCounters: this.state.numOfCounters - 1 ,
-        }))
-    }
-}
-    counterReset(){
-        this.setState((state) =>({
-            numOfCounters: 1,
-        }))
+    const Counters = [];
+    for (var i = 0; i < counter; i += 1) {
+     Counters.push(<CounterContainer key={i} />);
     }
 
-    evenValue(){
-        if (this.state.count %2 === 0 ){
-            this.setState((state) =>({
-                count: this.state.count + 1,
-            }))
-        }
-    }
-        
+      return(
+          <div>
+          <Counter2
+          counterIncrement={counterIncrement}
+          counterDecrement={counterDecrement}
+          counterReset={counterReset}
+          counter={counter}
     
-  
-   // oddValue{
+          /> {Counters}
+          </div>
+      )  
 
-   // }
-
-    componentDidMount(){
-        console.log('did mount')
-    }
-
-    render(){
-       const Counters = [];
-      for (var i = 0; i < this.state.numOfCounters; i += 1) {
-       Counters.push(<CounterContainer key={i} />);
-     };
-
-     const props ={
-        numOfCounters: this.state.numOfCounters,
-        counterIncrement: this.counterIncrement,
-        counterDecrement: this.counterDecrement,
-        counterReset: this.counterReset,
-        evenValue: this.evenValue
-      
       }
-        return(
-            <div>
-            <Counter2 {...props}/>{Counters}
-            </div>
-        );
-    }
-}
-    CounterParent.propTypes ={
-        counterIncrement: PropTypes.func,
-        numOfCounters: PropTypes.number,
-        counterDecrement: PropTypes.func,
-        counterReset: PropTypes.func,
-        evenValue: PropTypes.func
-    
-    }
-
 
 export default CounterParent;

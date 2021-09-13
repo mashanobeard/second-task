@@ -8,7 +8,7 @@ const Counter2 = (props) =>(
 
     <div >
       <h1 className="num">how much?
-          <div>={props.numOfCounters}</div>
+          <div>={props.counter}</div>
       </h1>
      <Button  variant="contained" color="primary" onClick={props.counterIncrement} >
         Increment Counter

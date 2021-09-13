@@ -30,7 +30,6 @@ const CounterParent = (props) => {
           counterDecrement={counterDecrement}
           counterReset={counterReset}
           counter={counter}
-    
           /> {Counters}
           </div>
       )  

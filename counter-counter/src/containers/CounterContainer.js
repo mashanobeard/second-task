@@ -28,9 +28,8 @@ const CounterContainer = (props) => {
           count={count}
           />
       )  
-
       }
-      CounterContainer.ropTypes ={
+      CounterContainer.propTypes ={
         handleIncrement: PropTypes.func,
         handleDecrement: PropTypes.func,
         handleReset: PropTypes.func,
